@@ -8,7 +8,7 @@ const BASE_URL = environment.baseUrl;
 export const getIssueCommentsByNumber = async (
   issueNumber: string
 ): Promise<GitHubIssue[]> => {
-  await sleep(1500);
+  // await sleep(1500);
 
   try {
     const resp = await fetch(`${BASE_URL}/issues/${issueNumber}/comments`, {
@@ -20,7 +20,6 @@ export const getIssueCommentsByNumber = async (
     if (!resp.ok) throw "Can't load issueCommnets";
 
     const issueCommnets: GitHubIssue[] = await resp.json();
-    console.log({ issueCommnets });
 
     return issueCommnets;
   } catch (error) {
